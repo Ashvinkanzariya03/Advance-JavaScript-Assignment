@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculet subtotal price of quntity </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        </style>
+    <style>
+        body {
+            text-align: center;
+            margin-left: 200px;
+            margin-top: 120px;
+            font-family: "Poppins", sans-serif;
+
+        }
+
+        #price1 {
+            border: none;
+            text-align: center;
+        }
+
+        #price2 {
+            border: none;
+            text-align: center;
+        }
+
+        img {
+            height: 200px;
+            width: 200px;
+        }
+
+        .c {
+            display: flex;
+        }
+
+        .boat {
+            display: flex;
+        }
+
+        p {
+            width: 300px;
+            padding-left: 20px;
+        }
+
+        h1 {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="2">
+        <tr>
+            <th>
+                Product info
+            </th>
+
+            <th>
+                Qntity
+            </th>
+            <th>
+                Price (per unit)
+            </th>
+            <th>
+                Price (subtotal)
+            </th>
+            <th>
+                Remove
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <div class="c">
+                    <div> <img src="imge1.webp" alt=""></div>
+                    <div>
+                        <h1>Apple AirPods Pro</h1>
+                        <p>Wireless Earbuds with upto 60 Hours Playback, 13mm Drivers, IWP Technology, 650mAh Charging
+                            Case</p>
+                    </div>
+                </div>
+            </td>
+           
+            <td>
+                <input type="number" id="quntity1" onchange="subtotal()" min="0">
+            </td>
+            <td>
+                <input type="number" name="" id="price1" value="1500" readonly>
+            </td>
+            <td id="sub1"></td>
+            <td>
+                <button onclick="b1()">Remove</button>
+            </td>
+        </tr>
+
+        <!-- card-2  -->
+
+        <tr>
+            <td>
+                <div class="boat">
+                    <div>
+                        <img src="imge2.webp" alt="">
+                    </div>
+                    <div>
+                        <h1>Airdopes131</h1>
+                        <p>Wireless Earbuds with upto 40 Hours Playback, 13mm Drivers, IWP Technology, 650mAh Charging
+                            Case</p>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <input type="number" id="quntity2" onchange="subtotal2()">
+            </td>
+            <td>
+                <input type="number" name="" id="price2" value="1000">
+            </td>
+            <td id="sub2"></td>
+            <td>
+                <button onclick="b2()">Remove</button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="qtotal"></td>
+            <td>2500</td>
+            <td id="total"></td>
+            <td><button onclick="submit()">submit</button></td>
+        </tr>
+    </table>
+
+    <script>
+        p1 = document.getElementById('price1');
+        q1 = document.getElementById('quntity1');
+        btn = document.querySelectorAll('button')
+        p2 = document.getElementById('price2');
+        q2 = document.getElementById('quntity2');
+        sub1 = document.getElementById('sub1');
+        sub2 = document.getElementById('sub2');
+
+        function subtotal() {
+            document.getElementById('sub1').innerHTML = p1.value * q1.value
+            sub1.style.visibility = "visible";
+
+        }
+
+        function subtotal2() {
+            document.getElementById('sub2').innerHTML = p2.value * q2.value
+            sub2.style.visibility = "visible";
+        }
+
+        function b1() {
+            q1.value = " ";
+            sub1.style.visibility = "hidden";
+
+        }
+
+        function b2() {
+            q2.value = " ";
+            sub2.style.visibility = "hidden";
+
+        }
+
+        function submit() {
+            document.getElementById('total').innerHTML = p2.value * q2.value + p1.value * q1.value;
+            var tot = document.getElementById('qtotal').innerHTML = parseInt(q1.value) + parseInt(q2.value);
+            console.log(typeof tot);
+        }
+    </script>
+</body>
+
+</html>
